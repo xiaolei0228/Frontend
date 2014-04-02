@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<!-[if IE]>
+    <script type="text/javascript" src="../../js/HTML5.js"></script>
+<![endif]->
+<head>
+    <meta charset="utf-8">
+    <title>HTML5艺术字</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="300px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+
+    context.font = "80px 华文行楷";
+    context.lineWidth = 2;
+    context.strokeStyle = "blue";
+    context.strokeText("生成的中空的字体！",0,150,300);
+</script>
+</html>

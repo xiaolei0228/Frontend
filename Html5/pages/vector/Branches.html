@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<!-[if IE]>
+    <script type="text/javascript" src="../../js/HTML5.js"></script>
+<![endif]->
+<head>
+    <meta charset="utf-8">
+    <title>树分叉效果</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="500px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = null;
+    var context = null;
+    window.onload = function() {
+        myCanvas = document.getElementById("myCanvas");
+        context = myCanvas.getContext("2d");
+
+        drawBranches(myCanvas.width / 2, myCanvas.height, 50, 0);
+    };
+
+    function drawBranches(startX,startY,trunkWidth,level) {
+        if(level < 12) {
+            var changeX = 100/(level + 1);
+            var changeY = 200/(level + 1);
+
+            var topLeftX = startX - Math.random() * changeX;
+            var topLeftY = startY - Math.random() * changeY;
+
+            var topRightX = startX + Math.random() * changeX;
+            var topRightY = startY - Math.random() * changeY;
+
+            //画左边的树叉
+            context.beginPath();
+            context.moveTo(startX,startY);
+            context.quadraticCurveTo(startX - trunkWidth/4,startY - trunkWidth,topLeftX,topLeftY);
+            context.lineWidth = trunkWidth;
+            context.lineCap = "round";
+            context.stroke();
+
+            //画右边的树叉
+            context.beginPath();
+            context.moveTo(startX + trunkWidth/4,startY);
+            context.quadraticCurveTo(startX + trunkWidth/4,startY - trunkWidth, topRightX, topRightY);
+            context.lineWidth = trunkWidth;
+            context.lineCap = "round";
+            context.stroke();
+
+            drawBranches(topRightX,topRightY,trunkWidth * 0.7,level +1);
+            drawBranches(topLeftX,topLeftY,trunkWidth * 0.7,level + 1);
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<!-[if IE]>
+    <script type="text/javascript" src="../../js/HTML5.js"></script>
+<![endif]->
+<head>
+    <meta charset="utf-8">
+    <title>圆角</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="300px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+
+    var rectWidth = 200;
+    var rectHeight = 100;
+    var rectX = myCanvas.width / 2 - rectWidth / 2;     //水平居中
+    var rectY = myCanvas.height / 2 - rectHeight / 2;   //垂直居中
+
+    var cornerRadius = 100;                              //拐角弧度
+
+    context.beginPath();
+    context.moveTo(rectX,rectY);
+    context.lineTo(rectX + rectWidth - cornerRadius,rectY);
+    context.arcTo(rectX + rectWidth, rectY, rectX + rectWidth, rectY + cornerRadius, cornerRadius);
+    context.lineTo(rectX + rectWidth, rectY + rectHeight);
+
+    context.lineWidth = 3;
+    context.stroke();
+
+</script>
+</html>

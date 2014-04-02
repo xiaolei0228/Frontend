@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<!-[if IE]>
+    <script type="text/javascript" src="../../js/HTML5.js"></script>
+<![endif]->
+<head>
+    <meta charset="utf-8">
+    <title>Rotation</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="300px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+
+//    context.setTransform(1,0,0,1,0,0);
+    var angleInRadians = 330 * Math.PI/180;
+    context.rotate(angleInRadians);
+    context.fillStyle = "orange";
+    context.fillRect(100,100,50,50);
+</script>
+</html>

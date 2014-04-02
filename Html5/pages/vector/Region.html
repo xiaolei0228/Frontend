@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Region????</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="300px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+    //draw a big box on the screen
+    context.fillStyle = "gray";
+    context.fillRect(10,10,200,200);
+    context.save();
+
+    context.beginPath();
+
+    //clip the canvas to a 50x50 square starting at 0,0
+    context.rect(0,0,50,50);
+    context.clip();
+
+    //red circle
+    context.beginPath();
+    context.strokeStyle = "red";
+    context.lineWidth = 5;
+    context.arc(100,100,100,(Math.PI/180) * 0,(Math.PI/180) * 360,false);
+    context.stroke();
+    context.closePath();
+
+    context.restore();
+
+    //reclip to the entire canvas
+    context.beginPath();
+    context.rect(0,0,500,500);
+    context.clip();
+
+    //draw a blue line that is not clipped
+    context.beginPath();
+    context.strokeStyle = "orange";
+    context.lineWidth = 5;
+    context.arc(100,100,50,(Math.PI/180) * 0,(Math.PI/180) * 360,false);
+    context.stroke();
+    context.closePath();
+
+
+
+
+
+
+
+
+</script>
+</html>

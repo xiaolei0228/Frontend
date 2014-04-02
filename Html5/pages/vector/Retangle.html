@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>矩形</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="300px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+
+    var centerX = 100;
+    var centerY = 120;
+    var width = 200;
+    var height = 100;
+
+    var lineWidth = 1;
+
+    context.beginPath();
+    context.rect(centerX,centerY,width,height);
+    context.closePath();
+
+    context.lineWidth = lineWidth;
+    context.fillStyle = "pink";
+    context.fill();
+    context.strokeStyle = "blue";
+    context.stroke();
+
+</script>
+</html>

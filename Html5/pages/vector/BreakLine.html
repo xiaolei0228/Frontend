@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>折线</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="300px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+    context.beginPath();
+    context.strokeStyle = "blue";
+    context.lineJoin = "bevel";     //还提供了round、square、butt、miter
+    context.lineWidth = 20;
+    context.lineCap = "round";      //用来渲染线的两端。这里提供的值还有 square、butt、bevel
+    context.moveTo(20, 50);
+    context.lineTo(100, 50);
+    context.lineTo(100,220);
+    context.stroke();
+    context.closePath();
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>线性渐变</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500px" height="300px" style="border: 1px dotted #cd853f;">
+    你的浏览器不支持HTML5 Canvas
+</canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+    context.beginPath();
+
+    //创建一个中心渐变色块
+    var grd = context.createLinearGradient(100, 80, 60, 238, 50, 200);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "violet");
+
+    context.strokeStyle = "blue";
+    context.lineWidth = 1;
+    context.rect(20,30,400,250);
+    context.fillStyle = grd;    //把色块填充到圆中
+    context.fill();
+    context.stroke();
+    context.closePath();
+
+</script>
+</html>

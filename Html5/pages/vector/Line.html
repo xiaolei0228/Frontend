@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>直线</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="300px" style="border: 1px dotted #cd853f;">
+        你的浏览器不支持HTML5 Canvas
+    </canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById("myCanvas");
+    var context = myCanvas.getContext("2d");
+    context.beginPath();
+    context.strokeStyle = "blue";
+    context.lineWidth = 2;
+    context.lineCap = "square"; //这里提供的值还有“round”、“butt”
+    context.moveTo(20, 50);
+    context.lineTo(100, 50);
+    //多加几个lineTo就变成了折线
+//    context.lineTo(100, 130);
+//    context.lineTo(20, 50);
+    context.stroke();
+    context.closePath();
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>动画</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="js/jquery-1.10.2-min.js"></script>
+</head>
+<body>
+<button id="go"> Run</button>
+<div id="block">Hello!</div>
+</body>
+</html>
+<script type="text/javascript">
+    var style = function() {
+
+    };
+    $(document).ready(
+            $("#go").click(function () {
+                $('#block').animate({
+                    fontSize: "10px",
+                    borderWidth: 10
+                }, 200).animate({
+                    fontSize: "50px",
+                    right: "200px"
+
+                }, 1000);
+            })
+    );
+</script>

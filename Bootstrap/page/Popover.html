@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap之初使用</title>
+    <title>弹出框</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- 最新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="../resource/css/bootstrap.min.css">
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
@@ -14,13 +13,11 @@
     <script src="../resource/js/bootstrap.min.js"></script>
 </head>
 <body>
-<button type="button" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-star"></span> Star
-</button>
-<button type="button" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-adjust"></span> Star
-</button>
-<br/>
-<a href="http://v3.bootcss.com/components">这里有组件使用方法</a>
+<button type="button" class="btn btn-default" id="btn">弹出框按钮</button>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#btn').popover('toggle');
+    });
+</script>

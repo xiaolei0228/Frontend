@@ -8,12 +8,12 @@
 <body>
 <button id="go"> Run</button>
 <div id="block">Hello!</div>
+<div id="process-container" style="border: 1px solid #dcdcdc; height: 20px;">
+    <div id="process" style="background-color: #67b168; width: 0; height: 100%"></div>
+</div>
 </body>
 </html>
 <script type="text/javascript">
-    var style = function() {
-
-    };
     $(document).ready(
             $("#go").click(function () {
                 $('#block').animate({
@@ -23,6 +23,11 @@
                     fontSize: "50px",
                     right: "200px"
 
+                }, 1000);
+
+                // 进度条...
+                $('#process').animate({
+                    width: "100%"
                 }, 1000);
             })
     );

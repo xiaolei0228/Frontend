@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tab</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../resource/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="../resource/css/primeui-1.0-min.css"/>
+    <link rel="stylesheet" href="../resource/themes/cupertino/theme.css"/>
+    <script type="text/javascript" src="../resource/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="../resource/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../resource/js/primeui-1.0-min.js"></script>
+</head>
+<body>
+<div id="default">
+    <ul>
+        <li><a href="#tab1">Tab 1</a></li>
+        <li><a href="#tab2">Tab 2</a></li>
+        <li><a href="#tab3">Tab 3</a></li>
+    </ul>
+    <div>
+        <div id="tab1">content 1</div>
+        <div id="tab2">content 2</div>
+        <div id="tab3">content 3</div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $('#default').puitabview();
+    });
+</script>

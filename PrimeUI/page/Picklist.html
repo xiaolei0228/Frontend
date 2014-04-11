@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Picklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../resource/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="../resource/css/primeui-1.0-min.css"/>
+    <link rel="stylesheet" href="../resource/themes/bootstrap/theme.css"/>
+    <script type="text/javascript" src="../resource/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../resource/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../resource/js/primeui-1.0-min.js"></script>
+</head>
+<body style="font-size: 13px">
+<h3>Basic</h3>
+<div id="basic">
+    <select name="source">
+        <option value="1">Volkswagen</option>
+        <option value="2">Ford</option>
+        <option value="3">Mercedes</option>
+        <option value="4">Audi</option>
+        <option value="5">BMW</option>
+        <option value="6">Honda</option>
+        <option value="6">Porsche</option>
+        <option value="6">Chevrolet</option>
+        <option value="6">Jaguar</option>
+    </select>
+    <select name="target">
+    </select>
+</div>
+
+<h3>Advanced</h3>
+<div id="advanced">
+    <select name="source">
+    </select>
+    <select name="target">
+    </select>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        var themes = new Array('afterdark', 'afternoon', 'afterwork', 'aristo', 'black-tie', 'blitzer', 'bluesky', 'bootstrap', 'casablanca', 'cruze',
+                'cupertino', 'dark-hive', 'dot-luv', 'eggplant', 'excite-bike', 'flick', 'glass-x', 'home', 'hot-sneaks', 'humanity', 'le-frog', 'midnight',
+                'mint-choc', 'overcast', 'pepper-grinder', 'redmond', 'rocket', 'sam', 'smoothness', 'south-street', 'start', 'sunny', 'swanky-purse', 'trontastic',
+                'ui-darkness', 'ui-lightness', 'vader');
+
+        $('#basic').puipicklist();
+
+        $('#advanced').puipicklist({
+            effect: 'clip',
+            showSourceControls: true,
+            showTargetControls: true,
+            sourceCaption: 'Available',
+            targetCaption: 'Selected',
+            filter: true,
+            sourceData: themes,
+            content: function (option) {
+                return '<img src="resources/demo/images/themes/' + option + '.png" alt="" /><span style="float:right;font-size:14px">' + option + '</span>';
+            }
+        });
+    });
+</script>

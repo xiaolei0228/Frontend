@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>菜单</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../resource/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="../resource/css/primeui-1.0-min.css"/>
+    <link rel="stylesheet" href="../resource/themes/bootstrap/theme.css"/>
+    <script type="text/javascript" src="../resource/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../resource/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../resource/js/primeui-1.0-min.js"></script>
+</head>
+<body style="font-size: 13px">
+<ul id="tm1">
+    <li><a data-icon="ui-icon-document">File</a>
+        <ul>
+            <li><a data-icon="ui-icon-contact">New</a>
+                <ul>
+                    <li><a>Project</a></li>
+                    <li><a>Other</a></li>
+                </ul>
+            </li>
+            <li><a>Open</a></li>
+            <li><a>Quit</a></li>
+        </ul>
+    </li>
+    <li><a data-icon="ui-icon-pencil">Edit</a>
+        <ul>
+            <li><a data-icon="ui-icon-arrowreturnthick-1-w">Undo</a></li>
+            <li><a data-icon="ui-icon-arrowreturnthick-1-e">Redo</a></li>
+        </ul>
+    </li>
+    <li>
+        <a data-icon="ui-icon-help">Help</a>
+        <ul>
+            <li><a>Contents</a></li>
+            <li>
+                <a data-icon="ui-icon-search">Search</a>
+                <ul>
+                    <li><a>Text</a>
+                        <ul>
+                            <li><a>Workspace</a></li>
+                        </ul>
+                    </li>
+                    <li><a>File</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a data-icon="ui-icon-gear">Actions</a>
+        <ul>
+            <li><a data-icon="ui-icon-refresh">Ajax</a>
+                <ul>
+                    <li><a data-icon="ui-icon-disk">Save</a></li>
+                    <li><a data-icon="ui-icon-arrowrefresh-1-w">Update</a></li>
+                </ul>
+            </li>
+            <li><a data-icon="ui-icon-document">Non-Ajax</a>
+                <ul>
+                    <li><a data-icon="ui-icon-close">Delete</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a data-icon="ui-icon-close">Quit</a>
+    </li>
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $('#tm1').puitieredmenu();
+        $('#tm2').puitieredmenu({
+            autoDisplay: false
+        });
+
+        $('#tm3').puitieredmenu({
+            popup: true,
+            trigger: $('#tm3trigger')
+        });
+
+        $('button').puibutton();
+    });
+</script>

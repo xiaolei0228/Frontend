@@ -19,6 +19,19 @@
 </html>
 <script type="text/javascript">
     $(function () {
+        var data = [
+            {'brand': 'Volkswagen', 'year': 2012, 'color': 'White', 'vin': 'dsad231ff'},
+            {'brand': 'Audi', 'year': 2011, 'color': 'Black', 'vin': 'gwregre345'},
+            {'brand': 'Renault', 'year': 2005, 'color': 'Gray', 'vin': 'h354htr'},
+            {'brand': 'Bmw', 'year': 2003, 'color': 'Blue', 'vin': 'j6w54qgh'},
+            {'brand': 'Mercedes', 'year': 1995, 'color': 'White', 'vin': 'hrtwy34'},
+            {'brand': 'Opel', 'year': 2005, 'color': 'Black', 'vin': 'jejtyj'},
+            {'brand': 'Honda', 'year': 2012, 'color': 'Yellow', 'vin': 'g43gr'},
+            {'brand': 'Chevrolet', 'year': 2013, 'color': 'White', 'vin': 'greg34'},
+            {'brand': 'Opel', 'year': 2000, 'color': 'Black', 'vin': 'h54hw5'},
+            {'brand': 'Mazda', 'year': 2013, 'color': 'Red', 'vin': '245t2s'}
+        ];
+
         $('#tbllocal').puidatatable({
             caption: '本地数据源',
             paginator: {
@@ -30,18 +43,7 @@
                 {field: 'year', headerText: 'Year', sortable: true},
                 {field: 'color', headerText: 'Color', sortable: true}
             ],
-            datasource: [
-                {'brand': 'Volkswagen', 'year': 2012, 'color': 'White', 'vin': 'dsad231ff'},
-                {'brand': 'Audi', 'year': 2011, 'color': 'Black', 'vin': 'gwregre345'},
-                {'brand': 'Renault', 'year': 2005, 'color': 'Gray', 'vin': 'h354htr'},
-                {'brand': 'Bmw', 'year': 2003, 'color': 'Blue', 'vin': 'j6w54qgh'},
-                {'brand': 'Mercedes', 'year': 1995, 'color': 'White', 'vin': 'hrtwy34'},
-                {'brand': 'Opel', 'year': 2005, 'color': 'Black', 'vin': 'jejtyj'},
-                {'brand': 'Honda', 'year': 2012, 'color': 'Yellow', 'vin': 'g43gr'},
-                {'brand': 'Chevrolet', 'year': 2013, 'color': 'White', 'vin': 'greg34'},
-                {'brand': 'Opel', 'year': 2000, 'color': 'Black', 'vin': 'h54hw5'},
-                {'brand': 'Mazda', 'year': 2013, 'color': 'Red', 'vin': '245t2s'}
-            ],
+            datasource: data,
             selectionMode: 'single',
             rowSelect: function (event, data) {
                 $('#messages').puigrowl('show', [
@@ -69,7 +71,7 @@
             datasource: function (callback) {
                 $.ajax({
                     type: "GET",
-                    url: 'rest/cars/list',
+                    url: 'http://localhost:8080/vwps/api/login.json',
                     dataType: "json",
                     context: this,
                     success: function (response) {
@@ -90,12 +92,23 @@
             }
         });
 
+        /*************** 以下是远程调用后端api获取数据的例子 **************/
+        var paramsObj = {
+            language: "zh_CN",
+            params: {
+                sortField: '',
+                sortType: 'DESC',
+                paging: {
+                    pageSize: 15,
+                    currentRecord: 1
+                }
+            }
+        };
         $('#tblremotelazy').puidatatable({
             lazy: true,
-            caption: 'Remote Restful Webservice - Lazy',
+            caption: '远程获取WebApi数据',
             paginator: {
-                rows: 5,
-                totalRecords: 200
+                rows: 5
             },
             columns: [
                 {field: 'vin', headerText: 'Vin', sortable: true},
@@ -104,20 +117,35 @@
                 {field: 'color', headerText: 'Color', sortable: true}
             ],
             datasource: function (callback, ui) {
-                var uri = 'rest/cars/lazylist/' + ui.first;
+                var uri = 'api/login.json';
+                // 组装传向api的参数
+                paramsObj.params.paging.pageSize = ui.rows;
+                paramsObj.params.paging.currentRecord = ui.first;
                 if (ui.sortField) {
-                    uri += '/' + ui.sortField + '/' + ui.sortOrder;
+                    paramsObj.params.sortField = ui.sortField;
+                    paramsObj.params.sortType = (ui.sortOrder == 1 ? 'ASC' : 'DESC');
                 }
-
+                var paramsJsonObj = JSON.stringify(paramsObj);
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
                     url: uri,
-                    dataType: "json",
                     context: this,
+                    data: paramsJsonObj,
                     success: function (response) {
-                        callback.call(this, response);
+                        callback.call(this, eval(response));
                     }
                 });
+            },
+            selectionMode: 'single',
+            rowSelect: function (event, data) {
+                $('#messages').puigrowl('show', [
+                    {severity: 'info', summary: 'Row Selected', detail: (data.brand + ' ' + data.vin)}
+                ]);
+            },
+            rowUnselect: function (event, data) {
+                $('#messages').puigrowl('show', [
+                    {severity: 'info', summary: 'Row Unselected', detail: (data.brand + ' ' + data.vin)}
+                ]);
             }
         });
 

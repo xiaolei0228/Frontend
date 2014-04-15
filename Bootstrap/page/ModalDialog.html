@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button class="btn btn-primary btn-lg" data-toggle="modal" id="showModal">
     Launch demo modal
 </button>
 <!-- Modal -->
@@ -42,3 +42,17 @@
 </div><!-- /.modal -->
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#showModal').click(function() {
+            $('#myModal').modal({
+                keyboard: false
+            });
+        });
+
+        $('.modal-modal-footer:last-child').click(function() {
+            alert("AAA");
+            $('#myModal').modal('hide');
+        });
+    });
+</script>

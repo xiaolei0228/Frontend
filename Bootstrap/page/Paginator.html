@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>分页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../resource/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="../resource/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../resource/css/bootstrap-combined.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../resource/js/jquery-1.10.2-min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="../resource/js/bootstrap.min.js"></script>
+    <script src="../resource/js/bootstrap-paginator.min.js"></script>
+    <style>
+        #example li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="example"></div>
+<p/>
+<a href="http://bootstrappaginator.org/">Bootstrap的分页文档</a>
+</body>
+</html>
+<script type="text/javascript">
+    var options = {
+        currentPage: 3,
+        totalPages: 10,
+        size:'normal',
+        pageUrl: function() {
+
+        }
+    };
+
+    $('#example').bootstrapPaginator(options);
+</script>

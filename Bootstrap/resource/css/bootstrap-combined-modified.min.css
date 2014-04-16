@@ -18,7 +18,8 @@
 }
 
 .pagination li {
-    display: inline
+    display: inline;
+    cursor: pointer;
 }
 
 .pagination a {

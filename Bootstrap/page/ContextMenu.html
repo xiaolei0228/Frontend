@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>右键菜单</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../resource/css/bootstrap.min.css">
+    <script src="../resource/js/jquery-1.10.2-min.js"></script>
+    <script src="../resource/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="settingContextMenu">
+    <ul class="dropdown-menu" role="menu"
+        aria-labelledby="dropdownMenu" id="contextMenu">
+        <li><a tabindex="-1" href="#">任务指派</a></li>
+        <li><a tabindex="-1" href="#">任务监听</a></li>
+        <li><a tabindex="-1" href="#">任务表单</a></li>
+        <li class="divider"></li>
+        <li><a tabindex="-1" href="#">想干啥就干啥...</a></li>
+    </ul>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).bind("mousedown", function(e) {
+            if (3 == e.which) {
+                document.oncontextmenu = function () {return false;};
+                $("#contextMenu").hide();
+                $("#contextMenu").attr("style", "display: block; position: fixed; top:" + e.pageY + "px; left:" + e.pageX + "px; width: 180px;");
+                $("#contextMenu").show();
+            }
+            $("#settingContextMenu").click(function (e) {
+                $("#contextMenu").hide();
+            });
+        });
+    });
+</script>

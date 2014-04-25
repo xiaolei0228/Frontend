@@ -18,7 +18,7 @@
     overflow-y: scroll
 }
 .ehome-modal.fade .ehome-modal-dialog {
-    -webkit-transform: translate(25%, 0);
+    -webkit-transform: translate(25%, 0);   /* 从右切入 */
     -ms-transform: translate(25%, 0);
     transform: translate(25%, 0);
     -webkit-transition: -webkit-transform .3s ease-out;

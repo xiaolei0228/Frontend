@@ -21,8 +21,8 @@
     Launch demo modal
 </button>
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="ehome-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="ehome-modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -43,7 +43,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#showModal').click(function() {
-            $('#myModal').modal();
+            $('#myModal').modal({
+                keyboard: true
+            });
         });
 
         $('.modal-modal-footer:last-child').click(function() {

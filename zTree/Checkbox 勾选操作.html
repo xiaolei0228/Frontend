@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkbox 勾选操作</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="resource/css/zTreeStyle/zTreeStyle.css"/>
+    <script type="text/javascript" src="resource/js/jquery-1.10.2-min.js"></script>
+    <script type="text/javascript" src="resource/js/jquery.ztree.all-3.5.min.js"></script>
+</head>
+<body>
+<div id="div_tree" class="ztree"></div>
+<button id="btn_getCheckedNodes">获取选中的节点</button>
+<div id="div_new_tree" class="ztree"></div>
+
+</body>
+</html>
+<script type="text/javascript">
+    var setting = {
+        check: {
+            enable: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+
+    var zNodes =[
+        { id:1, pId:0, name:"父节点1 - 展开", open:true},
+        { id:11, pId:1, name:"父节点11 - 折叠"},
+        { id:111, pId:11, name:"叶子节点111"},
+        { id:112, pId:11, name:"叶子节点112"},
+        { id:113, pId:11, name:"叶子节点113"},
+        { id:114, pId:11, name:"叶子节点114"},
+        { id:12, pId:1, name:"父节点12 - 折叠"},
+        { id:121, pId:12, name:"叶子节点121"},
+        { id:122, pId:12, name:"叶子节点122"},
+        { id:123, pId:12, name:"叶子节点123"},
+        { id:124, pId:12, name:"叶子节点124"},
+        { id:13, pId:1, name:"父节点13 - 没有子节点", isParent:true},
+        { id:2, pId:0, name:"父节点2 - 折叠"},
+        { id:21, pId:2, name:"父节点21 - 展开", open:true},
+        { id:211, pId:21, name:"叶子节点211"},
+        { id:212, pId:21, name:"叶子节点212"},
+        { id:213, pId:21, name:"叶子节点213"},
+        { id:214, pId:21, name:"叶子节点214"},
+        { id:22, pId:2, name:"父节点22 - 折叠"},
+        { id:221, pId:22, name:"叶子节点221"},
+        { id:222, pId:22, name:"叶子节点222"},
+        { id:223, pId:22, name:"叶子节点223"},
+        { id:224, pId:22, name:"叶子节点224"},
+        { id:23, pId:2, name:"父节点23 - 折叠"},
+        { id:231, pId:23, name:"叶子节点231"},
+        { id:232, pId:23, name:"叶子节点232"},
+        { id:233, pId:23, name:"叶子节点233"},
+        { id:234, pId:23, name:"叶子节点234"},
+        { id:3, pId:0, name:"父节点3 - 没有子节点", isParent:true}
+    ];
+
+    $(document).ready(function() {
+        $.fn.zTree.init($('#div_tree'), setting, zNodes);
+
+        $('#btn_getCheckedNodes').bind('click', function() {
+            var zTreeObj = $.fn.zTree.getZTreeObj("div_tree");
+            var nodes = zTreeObj.getCheckedNodes(true);
+            if(nodes != "") {
+                var nodeArray = [];
+                $.each(nodes, function(i, n) {
+                    var menu = {id: n.id, pId: n.pId, name: n.name, open: true, checked: true};
+                    nodeArray.push(menu);
+                });
+                $.fn.zTree.init($('#div_new_tree'), setting, nodeArray);
+
+                // 拷贝节点后移除选中节点
+                for(var i = 0; i < nodes.length; i++) {
+                    zTreeObj.removeNode(nodes[i]);
+                }
+            }
+        });
+    });
+
+
+</script>

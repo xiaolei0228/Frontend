@@ -8,7 +8,7 @@
     <script src="../resource/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="settingContextMenu">
+<div id="rightMenu">
     <ul class="dropdown-menu" role="menu"
         aria-labelledby="dropdownMenu" id="contextMenu">
         <li><a tabindex="-1" href="#">任务指派</a></li>
@@ -29,7 +29,7 @@
                 $("#contextMenu").attr("style", "display: block; position: fixed; top:" + e.pageY + "px; left:" + e.pageX + "px; width: 180px;");
                 $("#contextMenu").show();
             }
-            $("#settingContextMenu").click(function (e) {
+            $("#rightMenu").click(function (e) {
                 $("#contextMenu").hide();
             });
         });

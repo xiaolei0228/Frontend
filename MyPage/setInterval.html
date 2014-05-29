@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>定时器实现数字动态递增效果</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="resource/js/jquery-1.11.0.js"></script>
+</head>
+<body>
+<span id="num"></span><span>%</span>
+</body>
+</html>
+<script type="text/javascript">
+    var interval;
+    $(document).ready(function() {
+        interval = setInterval(view, 10);
+    });
+
+    function view() {
+        var val = $('#num').text();
+        if(val >= 99) {
+            clearInterval(interval);
+        }
+        if(val > 80) {
+            $('#num').css("color", "red");
+        }
+        if(val == "" || val == null || val == undefined) val = 0;
+        var intVal = parseInt(val);
+        $('#num').text(intVal + 1);
+    }
+</script>

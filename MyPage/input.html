@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>input样式</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        label {
+            border: 1px solid #0000ff;
+            width: 210px;
+            height: 30px;
+            display:inline-block;
+            text-align: right;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-right: 10px;
+            font-weight: lighter;
+        }
+        input {
+            border: 1px solid #cccccc;
+            border-radius: 4px 4px 4px 4px;
+            -moz-border-radius: 4px 4px 4px 4px;
+            -webkit-border-radius: 4px 4px 4px 4px;
+            width: 271px;
+            height: 30px;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<label>a</label>
+<fieldset style="width: 97%;min-width: 500px">
+    <legend>租户信息表单</legend>
+    <form id="tenantFm">
+        <label for="name">租户全称：</label><input id="name" name="name" type="text"/>
+        <label for="shortName">租户简称：</label><input id="shortName" name="shortName" type="text" class="easyui-numberbox"/><br/>
+        <label for="linker">联系人:</label><input id="linker" name="linker"/>
+        <label for="mobile">联系电话:</label><input id="mobile" name="mobile"/><br/>
+        <label for="address">详细地址：</label><input id="address" name="address" type="text" style="width: 90%"/>
+    </form>
+</fieldset>
+</body>
+</html>

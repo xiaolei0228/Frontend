@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>input样式</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        fieldset {
+            border: 1px solid green;
+            -webkit-border-radius: 5px;
+        }
+        label {
+            width: 110px;
+            height: 20px;
+            display:inline-block;
+            text-align: right;
+            padding-right: 10px;
+            font-weight: lighter;
+        }
+        input,textarea {
+            border: 1px solid #cccccc;
+            border-radius: 4px 4px 4px 4px;
+            -moz-border-radius: 4px 4px 4px 4px;
+            -webkit-border-radius: 4px 4px 4px 4px;
+            width: 275px;
+            height: 23px;
+            padding-left: 3px;
+        }
+        .warp div {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+<fieldset style="width: 97.76%;min-width: 500px">
+    <legend>租户信息表单</legend>
+    <form id="tenantFm" class="easyui-form warp">
+        <div>
+            <label for="code">租户编码:</label><input id="code" name="code" type="text"/>
+            <label for="name">租户全称:</label><input id="name" name="name" type="text"/>
+        </div>
+        <div>
+            <label for="shortName">租户简称:</label><input id="shortName" name="shortName" type="text"/>
+            <label for="areaPath">所属地区:</label><input id="areaPath" name="areaPath" type="text"/>
+        </div>
+        <div><label for="address">详细地址:</label><input id="address" name="address" type="text" style="width: 682px"/></div>
+        <div><label for="linker">联系人:</label><input id="linker" name="linker"/>
+            <label for="telphone">固定电话:</label><input id="telphone" name="telphone"/>
+        </div>
+        <div><label for="mobile">移动电话:</label><input id="mobile" name="mobile"/>
+            <label for="email">电子信箱:</label><input id="email" name="email"/>
+        </div>
+        <div><label for="fax">传真号码:</label><input id="fax" name="fax"/>
+            <label for="status">状态:</label><input id="status" name="status" type="number"/>
+        </div>
+        <div style="position:relative;padding-left:130px;">
+            <label for="description" style="position: absolute;left: 0;bottom: 50%;height: 20px;margin-bottom: -10px;">备注说明:</label>
+            <textarea id="description" name="description" style="width: 680px;height: 100px;margin-left: -10px"></textarea>
+        </div>
+        <div style="text-align: center;">
+            <a href="#" id="saveBtn" class="easyui-linkbutton">保 存</a>&nbsp;
+            <a href="#" id="cancelBtn" class="easyui-linkbutton">取 消</a>
+        </div>
+    </form>
+</fieldset>
+</body>
+</html>

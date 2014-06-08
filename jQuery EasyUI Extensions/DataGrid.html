@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataGrid</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="resource/jquery/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <link href="resource/jquery-easyui-theme/default/easyui.css" rel="stylesheet">
+    <link href="resource/jquery-easyui-theme/icon.css" rel="stylesheet">
+    <script src="resource/jquery-easyui-1.3.6/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="resource/jquery-easyui-1.3.6/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="resource/release/jquery.jdirk.min.js" type="text/javascript"></script>
+    <link href="resource/icons/icon-all.min.css" rel="stylesheet">
+    <script src="resource/release/jeasyui.icons.all.min.js" type="text/javascript"></script>
+    <link href="resource/release/jeasyui.extensions.min.css" rel="stylesheet"/>
+    <script src="resource/release/jeasyui.extensions.all.min.js" type="text/javascript"></script>
+</head>
+<body style="font-size: 13px;margin: 0">
+<table id="test"></table>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $('#test').datagrid({
+            title: 'test datagrid',
+            width: 1200,
+            height: 400,
+            method: "get",
+            url: "data.json",
+            idField: 'ID',
+            remoteSort: false,
+            frozenColumns: [[
+                { field: 'ck', checkbox: true },
+                { field: 'ID', title: 'ID', width: 80, sortable: true }
+            ]],
+            columns: [[
+                { field: 'Code', title: '编号(Code)', width: 120, editor: "text" },
+                { field: 'Name', title: '名称(Name)', width: 140, editor: "text" },
+                { field: 'Age', title: '年龄(Age)', width: 120, editor: "numberbox" },
+                { field: 'Height', title: '身高(Height)', width: 140, editor: "numberbox" },
+                { field: 'Weight', title: '体重(Weight)', width: 140, editor: "numberbox" },
+                { field: 'CreateDate', title: '创建日期(CreateDate)', width: 180, editor: "datebox" },
+                { field: 'undefined', title: '测试(不存在的字段)', width: 150 }
+            ]],
+            rowContextMenu: [
+                { text: "编辑", iconCls: "icon-edit", handler: function (e, index) { t.datagrid("beginEdit", index); } }
+            ],
+            pagination: true,
+            autoFocusField: "Name",
+            autoEditing: true,          //该属性启用双击行时自定开启该行的编辑状态
+            extEditing: true,           //该属性启用行编辑状态的 ExtEditing 风格效果，该属性默认为 true。
+            singleEditing: true         //该属性启用datagrid的只允许单行编辑效果，该属性默认为 true。
+        });
+
+        $(document).click(function (e) {
+            var body = t.datagrid("getPanel");
+            if (!$.contains(body[0], e.target)) {
+                t.datagrid("endEdit", 1);
+            }
+        });
+    });
+</script>

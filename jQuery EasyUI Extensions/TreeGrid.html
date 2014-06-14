@@ -22,10 +22,10 @@
 </body>
 </html>
 <script type="text/javascript">
-    var treeGridData;
+    var treeGrid;
     $(document).ready(function() {
-        var treeGrid = $("#treeGrid");
-        treeGridData = treeGrid .treegrid({
+        var demoTreeGrid = $("#treeGrid");
+        treeGrid = demoTreeGrid .treegrid({
             title: 'This is TreeGrid',
             width: 900,
             height: 400,
@@ -80,13 +80,19 @@
             }
         });
 
+        // 点击某个按钮添加一行
         $("#addBtn").bind("click", function () {
-            $('#treeGrid').treegrid('insert', {
-                before: 'a3',
-                data: {
-                    name: 'name38'
-                }
-            });
+            var node = demoTreeGrid.treegrid('getSelected');
+            var appendNode = {};
+            if (node) {
+                appendNode.parent = node.id;
+            }
+            appendNode.data = [
+                { id:"newNode", name: "测试节点B"}
+            ];
+            demoTreeGrid.treegrid("append", appendNode);
+            // 使新添加的行处于编辑状态
+            demoTreeGrid.treegrid('beginEdit', 'newNode');
         });
     });
 </script>

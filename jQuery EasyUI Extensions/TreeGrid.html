@@ -45,7 +45,14 @@
                 { field: 'weight', title: '体重(weight)', width: 120, editor: 'text', sortable: true },
                 { field: 'size', title: 'Size(size)', width: 140, editor: 'text' },
                 { field: 'date', title: '日期(date)', width: 140, editor: 'text', sortable: true },
-                { field: 'undefined', title: '测试(不存在的字段)', width: 140, editor: 'text' }
+                { field: 'enabled', title: '测试(不存在的字段)', width: 140,
+                    editor: {
+                    type:'checkbox',
+                    options:{
+                        on: '是',
+                        off: '否'
+                    }
+                } }
             ]],
             enableHeaderClickMenu: false,
             enableHeaderContextMenu: false,
@@ -76,7 +83,7 @@
         treeGrid.treegrid({
             onAfterEdit: function (data) {
                 $.fn.treegrid.extensions.onAfterEdit.apply(this, arguments);  //这句一定要加上。
-                alert(data.name);
+                alert(data.enabled);
             }
         });
 

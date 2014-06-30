@@ -12,4 +12,8 @@
 </html>
 <script type="text/javascript">
     var ue = UE.getEditor('container');
+    // 填充内容的时候需要这样做
+    ue.addListener('ready', function () {
+        ue.setContent('插入一些内容');
+    });
 </script>

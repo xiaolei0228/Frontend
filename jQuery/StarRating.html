@@ -67,10 +67,9 @@
 <script type="text/javascript">
     var starContainer = $('#default');
     for(var i = 1; i <= 5; i++) {
-        var star = $('<span/>');
+        var star = $('<div style="width: 20px; height: 20px;float:left;border: 1px solid #ff0000"/>');
         star.attr('id', i);
         star.html(i);
-        star.css('width', '20px');
         star.addClass('star-five');
         star.appendTo(starContainer);
     }

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>评分组件</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="js/jquery-1.10.2-min.js" type="text/javascript"></script>
+    <style>
+        /* 图标 */
+        .f_icon1 {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #C8C8C8;
+            border: 4px solid #C8C8C8;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 6px #fff;
+            position: relative;
+            text-indent: -999em;
+        }
+
+        .f_icon1:before {
+            content: '';
+            width: 6px;
+            height: 4px;
+            position: absolute;
+            background: #C8C8C8;
+            right: 0;
+            top: 50%;
+            margin-top: -2px;
+        }
+
+        /* 评分组件(交互) */
+        .w_rate {
+            position: relative;
+            display: inline-block;
+            font-size: 0;
+        }
+
+        .w_rate .f_icon1 {
+            margin: 0 3px;
+        }
+
+        .w_rate1 legend {
+            position: absolute;
+            clip: rect(0 0 0 0);
+        }
+
+        .w_rate1 fieldset {
+            border: none;
+            padding: 0;
+        }
+
+        .w_rate1 input[type=radio] {
+            position: absolute;
+            clip: rect(0 0 0 0);
+        }
+
+        .w_rate1 input[type=submit] {
+            display: none;
+        }
+
+        .w_rate1 label {
+            cursor: pointer;
+        }
+
+        .w_rate1 .label_hov .f_icon1,
+        .w_rate1 .label_act .f_icon1 {
+            background: #099FDE;
+            border-color: #099FDE;
+        }
+
+        .w_rate1 .label_hov .f_icon1:before,
+        .w_rate1 .label_act .f_icon1:before {
+            background: #099FDE;
+        }
+
+        /* 评分组件(展示) */
+        .w_rate2 .wr2 {
+            overflow: hidden;
+            white-space: nowrap;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .w_rate2 .wr2 .f_icon1 {
+            background: #099FDE;
+            border-color: #099FDE;
+        }
+
+        .w_rate2 .wr2 .f_icon1:before {
+            background: #099FDE;
+        }
+    </style>
+</head>
+<body>
+<h3>评分组件（交互）</h3>
+
+<div class="w_rate w_rate1 j_rate">
+    <form action="" method="post">
+        <fieldset>
+            <legend>评分</legend>
+            <label>
+                <span class="f_icon1">差</span>
+                <input type="radio" name="rate" value="差"/>
+            </label>
+            <label>
+                <span class="f_icon1">较差</span>
+                <input type="radio" name="rate" value="较差"/>
+            </label>
+            <label>
+                <span class="f_icon1">一般</span>
+                <input type="radio" name="rate" value="一般"/>
+            </label>
+            <label>
+                <span class="f_icon1">较好</span>
+                <input type="radio" name="rate" value="较好"/>
+            </label>
+            <label>
+                <span class="f_icon1">好</span>
+                <input type="radio" name="rate" value="好"/>
+            </label>
+            <input type="hidden" name="itemreviewed" value="评论对象"/>
+            <input type="hidden" name="reviewer" value="评论者"/>
+            <input type="hidden" name="rating" value="分数"/>
+            <input type="submit" value="提交"/>
+        </fieldset>
+    </form>
+</div>
+<h3>评分组件（展示）</h3>
+
+<div class="w_rate w_rate2">
+    <div class="wr wr1">
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+    </div>
+    <div class="wr wr2" style="width:80%">
+        <span itemprop="itemreviewed">评论对象</span>
+        <span itemprop="reviewer">评论者</span>
+        <span itemprop="rating">4</span>
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+        <span class="f_icon1"></span>
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+    //评分组件
+    $('.j_rate label').hover(function () {
+        $('.j_rate label').addClass('label_hov');
+        $(this).nextAll().removeClass('label_hov');
+    }, function () {
+        $('.j_rate label').removeClass('label_hov');
+    })
+    $('.j_rate label').click(function () {
+        $('.j_rate label').addClass('label_act');
+        $(this).nextAll().removeClass('label_act');
+    })
+
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>评分组件2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="resource/jRating/jRating.jquery.css" rel="stylesheet">
+    <script src="resource/jRating/jquery.js" type="text/javascript"></script>
+    <script src="resource/jRating/jRating.jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="basic"></div><br>
+<div id="exemple1"></div><br>
+<div id="exemple2"></div><br>
+<div id="exemple3"></div><br>
+<div id="exemple4"></div><br>
+<div id="exemple5"></div><br>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#basic').jRating({
+            canRateAgain: true,
+            length: 10
+        });
+
+        $("#exemple1").jRating({
+            type: 'big',        // type of the rate.. can be set to 'small' or 'big'
+            length: 40,         // nb of stars
+            decimalLength: 1   // number of decimal in the rate
+        });
+
+        $("#exemple2").jRating({
+            step: true,
+            length: 20,         // nb of stars
+            decimalLength: 0   // number of decimal in the rate
+        });
+
+        $('#exemple3').jRating({
+            isDisabled: true
+        });
+
+        $("#exemple4").jRating({
+            length: 10,
+            decimalLength: 1,
+            onSuccess: function () {
+                alert('Success : your rate has been saved :)');
+            },
+            onError: function () {
+                alert('Error : please retry');
+            }
+        });
+
+        $("#exemple5").jRating({
+            onSuccess: function () {
+                jSuccess('Success : your rate has been saved :)', {
+                    HorizontalPosition: 'center',
+                    VerticalPosition: 'top'
+                });
+            },
+            onError: function () {
+                jError('Error : please retry');
+            },
+            onClick: function(element, rate) {
+                alert(rate);
+            }
+        });
+    });
+</script>

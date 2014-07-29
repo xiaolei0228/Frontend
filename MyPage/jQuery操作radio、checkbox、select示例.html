@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery操作radio、checkbox、select示例</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="resource/js/jquery-1.11.0.js" type="text/javascript"></script>
+</head>
+<body>
+<input type="radio" name="radio" id="radio1" value="1"/>1
+<input type="radio" name="radio" id="radio2" value="2"/>2
+<input type="radio" name="radio" id="radio3" value="3"/>3
+<input type="radio" name="radio" id="radio4" value="4"/>4
+<br/>
+<input type="checkbox" name="checkbox" id="checkbox_id1" value="1"/>1
+<input type="checkbox" name="checkbox" id="checkbox_id2" value="2"/>2
+<input type="checkbox" name="checkbox" id="checkbox_id3" value="3"/>3
+<input type="checkbox" name="checkbox" id="checkbox_id4" value="4"/>4
+<input type="checkbox" name="checkbox" id="checkbox_id5" value="5"/>5
+<br/>
+<select name="select" id="select_id" style="width: 100px;">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+</select>
+<br/>
+<span onclick="show()">点击</span>
+</body>
+</html>
+<script>
+    function show() {
+        //jquery获取单选框的值
+        alert($('input[type="radio"][name="radio"]:checked').val());
+
+        //jquery循环输出选中的值
+        $("input[type=checkbox][name=checkbox]:checked").each(function () {
+            alert($(this).val());
+        });
+
+        //jquery获取Select选中项的Value
+        alert($("#select_id").val());
+
+        //jquery获取Select选中项的Text
+        alert($("#select_id :selected").text());
+    }
+</script>

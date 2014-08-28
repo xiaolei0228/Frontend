@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>主页面框架</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="resource/extjs-5/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css" rel="stylesheet" type="text/css">
+    <script src="resource/extjs-5/ext-all.js" type="text/javascript"></script>
+    <script src="resource/extjs-5/packages/ext-locale/build/ext-locale-zh_CN.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="testDiv"></div>
+</body>
+</html>
+<script type="text/javascript">
+    Ext.onReady(function () {
+        Ext.create('Ext.container.Viewport', {
+            layout: 'border',
+            items: [{
+                region: 'north',
+                html: '<h1 class="x-panel-header">Page Title</h1>',
+                border: true,
+                style: {
+                    marginTop: '-1px'
+                },
+                height: 80
+            }, {
+                region: 'west',
+                collapsible: true,
+                title: '导航菜单',
+                split: true,
+                width: 250
+                // could use a TreePanel or AccordionLayout for navigational items
+            }, {
+                region: 'south',
+                collapsible: true,
+                html: '这里可写一些版权信息',
+                split: true
+            }, {
+                region: 'center',
+                xtype: 'tabpanel', // TabPanel itself has no title
+                activeTab: 0,      // First tab active by default
+                items: {
+                    title: '主页',
+                    html: "<iframe src='http://www.baidu.com' scrolling='auto' frameborder='0' width='100%' height='100%'></iframe>"
+                }
+            }]
+        });
+    });
+
+</script>

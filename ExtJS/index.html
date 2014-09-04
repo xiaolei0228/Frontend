@@ -73,16 +73,16 @@
                     },
                     listeners: {
                         //添加节点点击事件
-                        itemclick: function(dataview, record, item, index, e, eOpts) {
-                            if (record.id == 'root') return;
-                            var n = tab.getComponent(record.id);
+                        itemclick: function(dataview, node, item, index, e, eOpts) {
+                            if (!node.isLeaf()) return;
+                            var n = tab.getComponent(node.id);
                             if (!n) { // 判断是否已经打开该面板
                                 n = tab.add({
-                                    id : record.id,
-                                    title : record.data.text,
+                                    id : node.id,
+                                    title : node.data.text,
                                     closable: true,
                                     icon : 'http://nuomi.xnimg.cn/upload/deal/2014/7/V_L/1342095-sssythtgk8-16746722433842092.jpg',
-                                    html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src="' + record.id + '"></iframe>'  // 通过html载入目标页
+                                    html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src="' + node.id + '"></iframe>'  // 通过html载入目标页
                                 });
                             }
                             tab.setActiveTab(n);

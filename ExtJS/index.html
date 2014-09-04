@@ -12,39 +12,97 @@
 </body>
 </html>
 <script type="text/javascript">
-    Ext.onReady(function () {
-        Ext.create('Ext.container.Viewport', {
+    Ext.onReady(mainFrame);
+
+    function mainFrame() {
+        //新建tabpanel
+        var tab = Ext.create('Ext.TabPanel', {
+            region: 'center',
+            deferredRender: false,
+            activeTab: 0,
+            resizeTabs: true, // turn on tab resizing
+            minTabWidth: 115,
+            tabWidth: 135,
+            enableTabScroll: true
+        });
+
+        var viewPort = Ext.create('Ext.Viewport', {
             layout: 'border',
             items: [{
                 region: 'north',
-                html: '<h1 class="x-panel-header">Page Title</h1>',
-                border: true,
-                style: {
-                    marginTop: '-1px'
-                },
-                height: 80
+                xtype: 'panel',
+                minHeight: 60,
+                html: 'north',
+                collapsible: true  // 设置可折叠
             }, {
+                title: 'West Region is collapsible',
                 region: 'west',
-                collapsible: true,
-                title: '导航菜单',
+                xtype: 'panel',
+                width: 200,
+                collapsible: true,  // 设置可折叠
+                id: 'west-region-container',
+                layout: 'fit',
+                margins: '0 0 0 0',
+                layout: 'accordion',
+                title: '菜单',
                 split: true,
-                width: 250
-                // could use a TreePanel or AccordionLayout for navigational items
-            }, {
-                region: 'south',
-                collapsible: true,
-                html: '这里可写一些版权信息',
-                split: true
-            }, {
-                region: 'center',
-                xtype: 'tabpanel', // TabPanel itself has no title
-                activeTab: 0,      // First tab active by default
-                items: {
-                    title: '主页',
-                    html: "<iframe src='http://www.baidu.com' scrolling='auto' frameborder='0' width='100%' height='100%'></iframe>"
-                }
+                collapsible : true,
+                layoutConfig : {
+                    animate : true
+                },
+                items: [{
+                    title: '业务信息处理',
+                    xtype : 'treepanel',
+                    expanded : true,
+                    animate : true,
+                    enableDD : false,
+                    border : false,
+                    containerScroll : true,
+                    root : {
+                        text : '根节点',
+                        id:'root',
+                        children : [{
+                            text : '业务信息',
+                            id : 'http://www.qq.com',
+                            leaf : true
+                        }, {
+                            text : '组织管理',
+                            leaf : true,
+                            id :'http://www.baidu.com'
+                        }]
+                    },
+                    listeners: {
+                        //添加节点点击事件
+                        itemclick: function(dataview, record, item, index, e, eOpts) {
+                            if (record.id == 'root') return;
+                            var n = tab.getComponent(record.id);
+                            if (!n) { // 判断是否已经打开该面板
+                                n = tab.add({
+                                    id : record.id,
+                                    title : record.data.text,
+                                    closable: true,
+                                    icon : 'http://nuomi.xnimg.cn/upload/deal/2014/7/V_L/1342095-sssythtgk8-16746722433842092.jpg',
+                                    html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src="' + record.id + '"></iframe>'  // 通过html载入目标页
+                                });
+                            }
+                            tab.setActiveTab(n);
+                        }
+                    }
+                }, {
+                    title : '信息中心',
+                    border : false,
+                    html : '<div id="tree2" style="overflow:auto;width:100%;height:100%"></div>'
+                }, {
+                    title : '系统设置',
+                    border : false,
+                    html : '<div id="tree3" style="overflow:auto;width:100%;height:100%"></div>'
+                }]
+            }, tab, {
+                region : 'south',
+                minHeight : 25,
+                html:"<div align='center'>版权所有 xxxx有限公司 © 信息服务中心</div>"
             }]
-        });
-    });
+        })
+    }
 
 </script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>主页面框架</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="resource/extjs-5/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css" rel="stylesheet" type="text/css">
+    <script src="resource/extjs-5/ext-all.js" type="text/javascript"></script>
+    <script src="resource/extjs-5/packages/ext-locale/build/ext-locale-zh_CN.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="testDiv"></div>
+</body>
+</html>
+<script type="text/javascript">
+    Ext.onReady(mainFrame);
+
+    var header = Ext.create('Ext.panel.Panel', {
+        height: 80,
+        html: 'Ext学习示例',
+        region: 'north',
+        split: true,
+        bbar: [{
+            iconCls: 'icon-user',
+            text: '管理员',
+            style: 'margin-left:10px'
+        }, '-', {
+            text: Ext.Date.format(new Date(), 'Y年m月d日 H:i:s')
+        }, '->', {
+            iconCls: 'icon-logout',
+            text: '退出'
+        }],
+        bodyStyle: 'background-color:#99bbe8;line-height:50px;text-align:center;font-size:24px;color:#000000;font-family:黑体;font-weight:bolder'
+    });
+
+    var menuTree = Ext.create('Ext.panel.Panel', {
+        region: 'west',
+        title: '系统菜单',
+        width: 250,
+        iconCls: 'icon-tree',
+        autoScroll: false,
+        layout: 'accordion',
+        collapsible: true,
+        layoutConfig: {
+            animate: true
+        },
+        split: true
+    });
+
+    var tabPanel = Ext.create('Ext.tab.Panel', {
+        activeTab: 0,
+        enableTabScroll: true,
+        animScroll: true,
+        border: true,
+        autoScroll: true,
+        region: 'center',
+        split: true,
+        items: [{
+            iconCls: 'icon-activity',
+            title: '平台首页',
+            //xtype:'first',
+            layout: 'column',
+            loader: {
+                url: 'test.html',
+                autoLoad: true
+            }
+        }]
+    });
+
+    var bottom = Ext.create('Ext.panel.Panel', {
+        height: 20,
+        html: Ext.Date.format(new Date(), 'Y-m-d H:i:s'),
+        region: 'south',
+        bodyStyle: 'background-color:#99bbe8;line-height:20px;text-align:center;font-size:14px;color:#000000;font-famiy:宋体;font-weight:sharp'
+    });
+
+    function mainFrame() {
+        Ext.create('Ext.container.Viewport', {
+            layout: 'border',
+            items: [header, menuTree, tabPanel, bottom]
+        });
+    }
+
+</script>

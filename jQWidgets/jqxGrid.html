@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jqxGrid</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="resource/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="resource/styles/jqx.metro.css" type="text/css" />
+    <script type="text/javascript" src="resource/scripts/jquery-1.10.2-min.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxcore.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxdata.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxbuttons.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxmenu.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxlistbox.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.filter.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxgrid.grouping.js"></script>
+</head>
+<body>
+<div id="jqxgrid"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var data = [
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"},
+            { "empName": "测试员", "age": "67", "department": { "id": "1234", "name": "销售部" }, "author": "ravi"}
+        ];
+        var source = {
+            datatype: 'json',
+            datafields: [
+                { name: 'empName' },
+                { name: 'age' },
+                { name: 'id', map: 'department>id' },
+                { name: 'name', map: 'department>name' },
+                { name: 'author' }
+            ],
+            localdata: data
+        };
+        var dataAdapter = new $.jqx.dataAdapter(source);
+
+        $("#jqxgrid").jqxGrid({
+            width: 850,
+            source: dataAdapter,
+            pageable: true,
+            autoheight: true,
+            sortable: true,
+            altrows: true,
+            enabletooltips: true,
+            editable: true,
+            selectionmode: 'multiplecellsadvanced',
+            columns: [
+                { text: '姓名', datafield: 'empName', width: 250 },
+                { text: '年龄', datafield: 'age', width: 200 },
+                { text: '部门ID', datafield: 'id', width: 200 },
+                { text: '部门名称', datafield: 'name', width: 100 },
+                { text: '作者',  datafield: 'author' }
+            ]
+        });
+    });
+</script>

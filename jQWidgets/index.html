@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>主框架</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="resource/styles/jqx.bootstrap.css" type="text/css" />
+    <script type="text/javascript" src="resource/scripts/jquery-1.10.2-min.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxcore.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxdata.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxbuttons.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxpanel.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxtree.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxexpander.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxsplitter.js"></script>
+</head>
+<body class="default">
+<div id="splitter">
+    <div id="jqxTree">
+        菜单树
+    </div>
+    <div id="contentPanel">
+        tabPanel内容区
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#splitter').jqxSplitter({
+            width: 850,
+            height: 400,
+            panels: [{size: 250}]
+        });
+        $('#jqxTree').jqxTree({
+            height: '100%',
+            width: '100%'
+        });
+    });
+</script>

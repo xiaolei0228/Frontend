@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="resource/styles/jqx.bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="resource/styles/jqx.metro.css" type="text/css"/>
     <script type="text/javascript" src="resource/scripts/jquery-1.10.2-min.js"></script>
-    <script type="text/javascript" src="resource/scripts/globalize-zh.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxcore.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxdata.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxbuttons.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxscrollbar.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxpanel.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxtree.js"></script>
+    <script type="text/javascript" src="resource/scripts/globalize.js"></script>
+    <script type="text/javascript" src="resource/scripts/globalize.culture.zh-CN.js"></script>
 </head>
 <body>
 <div id="tree"></div>
@@ -149,6 +150,7 @@
         });
 
         // 使指定的某个节点选中
-        $('#tree').jqxTree('val', 'Caffe Latte');
+        $('#tree').jqxTree('expandItem', $("#17")[0]);      // 使id为17的节点所在的分支都展开
+        $('#tree').jqxTree('selectItem', $("#17")[0]);      // 选中id为17的节点
     });
 </script>

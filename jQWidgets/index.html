@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="resource/styles/jqx.base.css" type="text/css" />
     <link rel="stylesheet" href="resource/styles/jqx.bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="resource/styles/jqx.metro.css" type="text/css"/>
     <script type="text/javascript" src="resource/scripts/jquery-1.10.2-min.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxcore.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxdata.js"></script>
@@ -17,9 +18,9 @@
     <script type="text/javascript" src="resource/scripts/globalize.js"></script>
     <script type="text/javascript" src="resource/scripts/globalize.culture.zh-CN.js"></script>
 </head>
-<body class="default">
+<body class="">
 <div id="splitter">
-    <div id="jqxTree">
+    <div id="menuTree">
         菜单树
     </div>
     <div id="contentPanel">
@@ -35,9 +36,57 @@
             height: 400,
             panels: [{size: 250}]
         });
-        $('#jqxTree').jqxTree({
-            height: '100%',
-            width: '100%'
-        });
+
+        initMenuTree();
     });
+
+    function initMenuTree() {
+        var menuTreeData = [
+            {
+                "id": "1",
+                "parentid": "-1",
+                "text": "家用电器",
+                "value": "jydq"
+            },
+            {
+                "id": "2",
+                "parentid": "1",
+                "text": "大 家 电",
+                "value": "djd"
+            },
+            {
+                "id": "3",
+                "parentid": "1",
+                "text": "平板电视",
+                "value": "pbds"
+            },
+            {
+                "id": "4",
+                "parentid": "1",
+                "text": "空调",
+                "value": "kt"
+            }
+        ];
+        var menuTreeSource = {
+            datatype: "json",
+            datafields: [
+                { name: 'id' },
+                { name: 'parentid' },
+                { name: 'text' },
+                { name: 'value' }
+            ],
+            id: 'id',
+            localdata: menuTreeData
+        };
+        var menuTreeDataAdapter = new $.jqx.dataAdapter(menuTreeSource);
+        menuTreeDataAdapter.dataBind();
+        var records = menuTreeDataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label' }]);
+        $('#menuTree').jqxTree({
+            source: records,
+            width: '300px',
+            toggleMode: 'click',
+            theme: 'bootstrap'
+        });
+        $('#menuTree').jqxTree('expandAll');
+    }
 </script>

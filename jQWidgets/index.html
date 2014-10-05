@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="resource/styles/jqx.base.css" type="text/css" />
     <link rel="stylesheet" href="resource/styles/jqx.bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="resource/styles/jqx.metro.css" type="text/css"/>
+    <link rel="stylesheet" href="resource/styles/jqx.office.css" type="text/css"/>
     <script type="text/javascript" src="resource/scripts/jquery-1.10.2-min.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxcore.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxdata.js"></script>
@@ -132,6 +133,9 @@
                 tab.jqxTabs('select', index + 1);
             }
         });
+        menuTree.on('click', function (event) {
+            alert(event.args.element);
+        });
     }
 
     /**
@@ -145,7 +149,8 @@
             theme: theme,
             animationType: 'fade',
 //            selectionTracker: true,     // tab平滑移动
-            showCloseButtons: true
+            showCloseButtons: true,
+            selectionTracker:true
         });
         tab.jqxTabs('hideCloseButtonAt', 0);
     }

@@ -15,54 +15,83 @@
     <script type="text/javascript" src="resource/scripts/jqxtree.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxexpander.js"></script>
     <script type="text/javascript" src="resource/scripts/jqxsplitter.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxtabs.js"></script>
+    <script type="text/javascript" src="resource/scripts/jqxresponse.js"></script>
     <script type="text/javascript" src="resource/scripts/globalize.js"></script>
     <script type="text/javascript" src="resource/scripts/globalize.culture.zh-CN.js"></script>
 </head>
-<body class="">
+<body style="margin: 10px 0">
 <div id="splitter">
     <div id="menuTree">
         菜单树
     </div>
     <div id="contentPanel">
-        tabPanel内容区
+        <div id="tab">
+            <ul>
+                <li>主页</li>
+            </ul>
+            <div>
+                主页内容,这里可以写点随便什么东西,介绍性的东西都可以的...也可以include进来一个页面
+            </div>
+        </div>
     </div>
 </div>
 </body>
 </html>
 <script type="text/javascript">
+    var theme = 'bootstrap';
+    var openedTabs = [];
     $(document).ready(function () {
-        $('#splitter').jqxSplitter({
-            width: 850,
-            height: 400,
-            panels: [{size: 250}]
-        });
+        initMainSplitFrame();
 
         initMenuTree();
+
+        initMainTab();
     });
 
+    /**
+     * 初始化分隔框架
+     */
+    function initMainSplitFrame() {
+        var response = new $.jqx.response();
+        var device = response.viewPort;
+        var width = device.width - 2;           // 设备的宽
+        var height = device.height - 30;    // 设备的高
+        $('#splitter').jqxSplitter({
+            width: width,
+            height: height,
+            theme: theme,
+            panels: [{size: 250}]
+        });
+    }
+
+    /**
+     * 初始化菜单树
+     */
     function initMenuTree() {
         var menuTreeData = [
             {
                 "id": "1",
-                "parentid": "-1",
+                "pid": "-1",
                 "text": "家用电器",
                 "value": "jydq"
             },
             {
                 "id": "2",
-                "parentid": "1",
+                "pid": "1",
                 "text": "大 家 电",
-                "value": "djd"
+                "value": "djd",
+                "href": 'http://www.baidu.com'
             },
             {
                 "id": "3",
-                "parentid": "1",
+                "pid": "1",
                 "text": "平板电视",
                 "value": "pbds"
             },
             {
                 "id": "4",
-                "parentid": "1",
+                "pid": "1",
                 "text": "空调",
                 "value": "kt"
             }
@@ -71,7 +100,7 @@
             datatype: "json",
             datafields: [
                 { name: 'id' },
-                { name: 'parentid' },
+                { name: 'pid' },
                 { name: 'text' },
                 { name: 'value' }
             ],
@@ -80,13 +109,44 @@
         };
         var menuTreeDataAdapter = new $.jqx.dataAdapter(menuTreeSource);
         menuTreeDataAdapter.dataBind();
-        var records = menuTreeDataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label' }]);
-        $('#menuTree').jqxTree({
+        var records = menuTreeDataAdapter.getRecordsHierarchy('id', 'pid', 'items', [{ name: 'text', map: 'label' }]);
+        var menuTree = $('#menuTree');
+        var tab = $('#tab');
+        menuTree.jqxTree({
             source: records,
             width: '300px',
             toggleMode: 'click',
-            theme: 'bootstrap'
+            theme: theme
         });
-        $('#menuTree').jqxTree('expandAll');
+        menuTree.jqxTree('expandAll');
+        menuTree.on('select', function (event) {
+            var args = event.args;
+            var item = menuTree.jqxTree('getItem', args.element);
+            var label = item.label;
+            var id = item.id;
+            var index = $.inArray(id, openedTabs);
+            if (index < 0) {
+                tab.jqxTabs('addLast', label, label + '--' + id);
+                openedTabs.push(id);
+            } else {
+                tab.jqxTabs('select', index + 1);
+            }
+        });
+    }
+
+    /**
+     * 初始化主tab页签
+     */
+    function initMainTab() {
+        var tab = $('#tab');
+        tab.jqxTabs({
+            width: '100%',
+            height: '100%',
+            theme: theme,
+            animationType: 'fade',
+//            selectionTracker: true,     // tab平滑移动
+            showCloseButtons: true
+        });
+        tab.jqxTabs('hideCloseButtonAt', 0);
     }
 </script>

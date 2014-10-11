@@ -70,7 +70,7 @@ Ext.define('Ext.zc.form.HtmlEditorAttachment', {
                                 {
                                     xtype: 'fileuploadfield',
                                     fieldLabel: '选择文件',
-                                    beforeLabelTextTpl: zc.getStar(),
+//                                    beforeLabelTextTpl: zc.getStar(),
                                     buttonText: '请选择...',
                                     name: 'upload',
                                     emptyText: '请选择文件',
@@ -266,7 +266,7 @@ Ext.define('Ext.zc.form.HtmlEditorAttachment', {
         var formObj = btn.up('form');//获取Form对象
         if (formObj.isValid()) { //验证Form表单
             formObj.form.doAction('submit', {
-                url: zc.bp() + '/bdata_Thtmleditor_getUploadAttachment.action',
+                url: '/bdata_Thtmleditor_getUploadAttachment.action',
                 method: 'POST',
                 submitEmptyText: false,
                 waitMsg: '正在上传附件,请稍候...',

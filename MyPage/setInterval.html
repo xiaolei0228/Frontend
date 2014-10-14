@@ -4,9 +4,46 @@
     <title>定时器实现数字动态递增效果</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script type="text/javascript" src="resource/js/jquery-1.11.0.js"></script>
+    <style>
+        .CANo{
+            height: 30px;
+            border: none;
+            background: -moz-linear-gradient(top,#E64346,#E13335);
+            background: -webkit-gradient(linear,0 0,0 100%,from(#E64346),to(#E13335));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#E64346", endColorstr="#E13335");
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr="#E64346", endColorstr="#E13335")";
+            color: white;
+            border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            margin-top: 4px;
+        }
+        .CANo:active {
+            background: -moz-linear-gradient(top, #ff0202, #cc0202);
+            background: -webkit-gradient(linear,0 0,0 100%,from(#ff0202),to(#cc0202));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b73537", endColorstr="#ae282a");
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=" #ff0202 ", endColorstr=" #cc0202 ")";
+        }
+        .CANo_disable {
+            height: 30px;
+            border: none;
+            background-color: rgb(166, 166, 166);
+            color: #FFFFFF;
+            border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            margin-top: 4px;
+        }
+    </style>
 </head>
 <body>
 <span id="num"></span><span>%</span>
+<br>
+<br>
+<br>
+<br>
+<br>
+<input id="CANo" type="button" class="CANo" value="获取验证码" onclick="getCANo(this)">
 </body>
 </html>
 <script type="text/javascript">
@@ -26,5 +63,27 @@
         if(val == "" || val == null || val == undefined) val = 0;
         var intVal = parseInt(val);
         $('#num').text(intVal + 1);
+    }
+
+    /**
+     * 获取验证码,倒计时
+     */
+    var countdown = 60;
+    function getCANo(CANO) {
+        if (countdown == 0) {
+            CANO.removeAttribute("disabled");
+            CANO.value = "获取验证码";
+            countdown = 60;
+            CANO.className = 'CANo';
+            return;
+        } else {
+            CANO.setAttribute("disabled", true);
+            CANO.className = 'CANo_disable';
+            CANO.value = "重新发送(" + countdown + " s)";
+            countdown--;
+        }
+        setTimeout(function () {
+            getCANo(CANO)
+        }, 1000)
     }
 </script>

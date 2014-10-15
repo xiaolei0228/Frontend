@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>简单验证</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="resource/js/jquery-1.11.0.js" type="text/javascript"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    /**
+     * 校验手机号
+     */
+    function isMobile() {
+        var mobile = $('#mobile').val();
+        var reg0 = /^13\d{5,9}$/;
+        var reg1 = /^15\d{5,9}$/;
+        var reg2 = /^0\d{10,11}$/;
+        var my = false;
+        if (reg0.test(mobile))my = true;
+        if (reg1.test(mobile))my = true;
+        if (reg2.test(mobile))my = true;
+        if (mobile != "") {
+            if (!my) {
+                alert('请输入正确的手机号码!');
+            }
+        } else {
+            alert('请输入手机号!');
+        }
+    }
+</script>

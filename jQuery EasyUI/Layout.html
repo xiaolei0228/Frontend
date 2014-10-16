@@ -16,8 +16,12 @@
 </head>
 <body style="margin: 0">
     <div id="cc" class="easyui-layout" style="width:100%;height:770px;">
-        <div data-options="region:'north'" style="height:60px;" id="north"></div>
-        <div data-options="region:'west',split:true" title="West" style="width:220px;"></div>
+        <div data-options="region:'north'" style="height:60px;" id="north">
+            这里是头部
+        </div>
+        <div data-options="region:'west',split:true" title="菜单" style="width:285px;">
+            <iframe name="content_frame" src="Accordion.html" marginwidth=0 marginheight=0 width=100% height=100% frameborder=0></iframe>
+        </div>
         <div data-options="region:'center',split:true" style="padding-top: 8px">
             这里展示区...
         </div>

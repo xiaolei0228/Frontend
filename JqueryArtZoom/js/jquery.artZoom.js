@@ -63,7 +63,7 @@
         ].join('');
 
         // jQuery事件代理
-        this.live('click', function (event) {
+        this.bind('click', function (event) {
             if (this.nodeName !== 'IMG' && this.getAttribute('data-live') === 'stop') return false;
 
             var $artZoom, buttonClick,
@@ -199,13 +199,13 @@
                 return false;
             };
             $artZoom.show().find('.ui-artZoom-toolbar').slideDown(150);
-            $artZoom.find('[data-go]').live('click', buttonClick);
+            $artZoom.find('[data-go]').bind('click', buttonClick);
 
             return false;
         });
 
         // 给目标缩略图应用外部指针样式
-        this.live('mouseover', function () {
+        this.bind('mouseover', function () {
             if (this.className !== 'ui-artZoom-show') this.style.cursor = max;
         });
 

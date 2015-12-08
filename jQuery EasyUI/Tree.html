@@ -67,4 +67,52 @@
 
         return _newData;
     }
+
+    /**
+     * 生成eadyui能解析的有层次关系的树的json对象
+     * @param rows
+     * @returns {Array}
+     */
+    function makeEasyTree2(rows) {
+        function exists(rows, pid) {
+            for (var i = 0; i < rows.length; i++) {
+                if (rows[i].id == pid) return true;
+            }
+            return false;
+        }
+
+        var nodes = [];
+        // 得到顶层节点
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            if (!exists(rows, row.pid)) {
+                nodes.push({
+                    id: row.id,
+                    text: row.text
+                });
+            }
+        }
+
+        var toDo = [];
+        for (var i = 0; i < nodes.length; i++) {
+            toDo.push(nodes[i]);
+        }
+        while (toDo.length) {
+            var node = toDo.shift();    // 父节点
+            // 得到子节点
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                if (row.pid == node.id) {
+                    var child = {id: row.id, text: row.text, pointId: row.pointId, djip: row.djip};
+                    if (node.children) {
+                        node.children.push(child);
+                    } else {
+                        node.children = [child];
+                    }
+                    toDo.push(child);
+                }
+            }
+        }
+        return nodes;
+    }
 </script>

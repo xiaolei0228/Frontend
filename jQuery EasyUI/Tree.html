@@ -105,7 +105,7 @@
             for (var i = 0; i < rows.length; i++) {
                 var row = rows[i];
                 if (row.pid == node.id) {
-                    var child = {id: row.id, text: row.text, pointId: row.pointId, djip: row.djip};
+                    var child = {id: row.id, text: row.text, pid: row.pid, iconCls: row.iconCls};
                     if (node.children) {
                         node.children.push(child);
                     } else {

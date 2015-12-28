@@ -88,7 +88,9 @@
             if (!exists(rows, row.pid)) {
                 nodes.push({
                     id: row.id,
-                    text: row.text
+                    text: row.text,
+                    pid: row.pid,
+                    iconCls: row.iconCls
                 });
             }
         }

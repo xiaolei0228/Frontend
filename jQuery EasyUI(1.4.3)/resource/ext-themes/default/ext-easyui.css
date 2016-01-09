@@ -1,0 +1,646 @@
+/* panel 样式 begin */
+
+.panel-header {
+    padding: initial;
+    position: relative;
+}
+
+.panel-header, .panel-body {
+    border-color: #d9d9d9;
+}
+
+.panel-header {
+    background-color: #549bcf;
+    background: -webkit-linear-gradient(top,#549bcf 0,#549bcf 100%);
+    background: -moz-linear-gradient(top,#549bcf 0,#549bcf 100%);
+    background: -o-linear-gradient(top,#549bcf 0,#549bcf 100%);
+    background: linear-gradient(to bottom,#549bcf 0,#549bcf 100%);
+    background-repeat: initial;
+    filter: initial;
+    vertical-align: middle;
+}
+
+.panel-title {
+    font-size: 14px;
+    font-weight: initial;
+    color: #fff;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 6px;
+}
+
+.panel-with-icon {
+    padding-left: 32px;
+}
+
+.panel-footer {
+    border: 1px solid #d7d7d7;
+}
+
+.panel-icon, .panel-tool {
+    padding-right: 6px;
+}
+
+    .panel-tool a {
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+    }
+
+        .panel-tool a:hover {
+            background-color: initial;
+            -moz-border-radius: initial;
+            -webkit-border-radius: initial;
+            border-radius: initial;
+        }
+
+.panel-tool-close {
+    background: url('images/panel_tools.png') no-repeat -16px 0px;
+}
+
+.panel-tool-min {
+    background: url('images/panel_tools.png') no-repeat 0px 0px;
+}
+
+.panel-tool-max {
+    background: url('images/panel_tools.png') no-repeat 0px -16px;
+}
+
+.panel-tool-restore {
+    background: url('images/panel_tools.png') no-repeat -16px -16px;
+}
+
+.panel-tool-collapse {
+    background: url('images/panel_tools.png') no-repeat -32px 0;
+}
+
+.panel-tool-expand {
+    background: url('images/panel_tools.png') no-repeat -32px -16px;
+}
+
+/* panel 样式 begin */
+
+
+
+/* window 样式 begin */
+
+.window {
+    padding: initial;
+    border: initial;
+}
+
+    .window .window-header {
+        background: none;
+        background-color: #549bcf;
+        padding: initial;
+        color: #000000;
+    }
+
+        .window .window-header .panel-icon, .window .window-header .panel-tool {
+            margin-top: -8px;
+        }
+
+        .window .window-header .panel-icon {
+            left: 6px;
+        }
+
+        .window .window-header .panel-with-icon {
+            padding-left: 32px;
+        }
+
+.window, .window-shadow {
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+    .window, .window .window-body {
+        border-color: #d9d9d9;
+    }
+
+.window {
+    background-color: #fff;
+    background: -webkit-linear-gradient(top,#fff 0,#fff 20%);
+    background: -moz-linear-gradient(top,#fff 0,#fff 20%);
+    background: -o-linear-gradient(top,#fff 0,#fff 20%);
+    background: linear-gradient(to bottom,#fff 0,#fff 20%);
+    background-repeat: repeat-x;
+    filter: initial;
+}
+
+    .window .panel-footer {
+        border: 1px solid #d7d7d7;
+    }
+
+/* window 样式 end */
+
+
+
+
+
+/* dialog 样式 begin */
+
+.dialog-toolbar {
+    padding: 3px;
+}
+
+.dialog-toolbar {
+    border-color: #95B8E7 #dddddd #dddddd #dddddd;
+}
+
+.dialog-button {
+    border-color: #dddddd;
+    border-bottom: none;
+}
+
+/* dialog 样式 end */
+
+
+
+
+
+/* layout 样式 begin */
+
+.layout-button-up {
+    background: url('images/layout_arrows.png') no-repeat -16px -16px;
+}
+
+.layout-button-down {
+    background: url('images/layout_arrows.png') no-repeat -16px 0;
+}
+
+.layout-button-left {
+    background: url('images/layout_arrows.png') no-repeat 0 0;
+}
+
+.layout-button-right {
+    background: url('images/layout_arrows.png') no-repeat 0 -16px;
+}
+
+.layout-expand .panel-header, .layout-expand .panel-body {
+    background: #549bcf;
+}
+
+/* layout 样式 end */
+
+
+
+
+
+/* tabs 样式 begin */
+
+.tabs li a.tabs-inner {
+    height: 30px;
+    line-height: 30px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.tabs li.tabs-selected a.tabs-inner {
+    color: #4693c9;
+}
+
+.tabs li a.tabs-inner:hover {
+    color: #4693c9;
+    /*font-weight: bold;*/
+    filter: none;
+    border-top: 2px solid #0d77c1;
+}
+
+.tabs li.tabs-selected a.tabs-inner {
+    color: #4693c9;
+    border-top: 2px solid #0d77c1;
+    background: -webkit-linear-gradient(top, #f7fbfe 0, #ffffff 100%);
+    background: -moz-linear-gradient(top, #f7fbfe 0, #ffffff 100%);
+    background: -o-linear-gradient(top, #f7fbfe 0, #ffffff 100%);
+    background: linear-gradient(to bottom, #f7fbfe 0, #ffffff 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f7fbfe, endColorstr=#ffffff, GradientType=0);
+}
+
+.tabs li a.tabs-inner {
+    color: #333;
+    background-color: #f2f2f2;
+    background: -webkit-linear-gradient(top,#f2f2f2 0,#f2f2f2 100%);
+    background: -moz-linear-gradient(top,#f2f2f2 0,#f2f2f2 100%);
+    background: -o-linear-gradient(top,#f2f2f2 0,#f2f2f2 100%);
+    background: linear-gradient(to bottom,#f2f2f2 0,#f2f2f2 100%);
+    background-repeat: repeat-x;
+    filter: initial;
+}
+
+.tabs-header, .tabs-tool {
+    background-color: initial;
+}
+
+.tabs-header, .tabs-scroller-left, .tabs-scroller-right, .tabs-tool, .tabs, .tabs-panels, .tabs li a.tabs-inner, .tabs-header-bottom .tabs li.tabs-selected a.tabs-inner, .tabs-header-left .tabs li.tabs-selected a.tabs-inner, .tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+    border-color: #cacaca;
+}
+
+/* tabs 样式 end */
+
+
+
+
+
+/* accordion 样式 begin */
+
+.accordion .accordion-header {
+    background: #4babde;
+    color: #fff;
+}
+
+.accordion-collapse {
+    background: url('images/accordion_arrows.png') no-repeat 0 0;
+}
+
+.accordion-expand {
+    background: url('images/accordion_arrows.png') no-repeat -16px 0;
+}
+
+.accordion .accordion-header-selected {
+    background: #5395c5;
+    color: #fff;
+}
+
+    .accordion .accordion-header-selected .panel-title {
+        color: #fff;
+    }
+
+/* accordion 样式 end */
+
+
+
+
+/* validatebox 样式 begin */
+
+.validatebox-invalid {
+    border-color: #dcdcdc;
+    background-color: #f7f7f7;
+}
+
+/* validatebox 样式 end */
+
+
+
+
+/* textbox 样式 begin */
+
+.textbox {
+    border: 1px solid #d9d9d9;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+    .textbox .textbox-text {
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+    }
+
+.textbox-focused {
+    background: #fff;
+}
+
+.textbox-invalid {
+    border-color: #dcdcdc;
+    background-color: #f7f7f7;
+}
+
+/* textbox 样式 end */
+
+
+
+/* searchbox 样式 begin */
+
+.searchbox {
+    border-color: #d9d9d9;
+}
+
+.searchbox-button {
+    background: url('images/searchbox_button.png') no-repeat center center;
+}
+
+/* searchbox 样式 end */
+
+
+
+/* switchbutton 样式 begin */
+
+.switchbutton-on {
+    background: #68a8d8;
+    color: #fff;
+}
+
+/* switchbutton 样式 end */
+
+
+/* combo 样式 begin */
+
+.combo-arrow {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+.combo-arrow {
+    background: url('images/combo_arrow.png') no-repeat center center;
+}
+
+.combo {
+    border-color: #dbdbdd;
+}
+
+.combo-arrow {
+    background-color: none;
+}
+
+.combo-arrow-hover {
+    background-color: none;
+}
+
+.combo-arrow:hover {
+    background-color: none;
+}
+
+/* combo 样式 end */
+
+
+
+/* combobox 样式 begin */
+
+.combobox-item-selected {
+    background-color: #b1d5f0;
+}
+
+/* combobox 样式 end */
+
+
+
+/* calendar 样式 begin */
+
+.calendar {
+    padding: 0px;
+}
+
+.calendar-header {
+    height: 24px;
+}
+
+.calendar-title {
+    height: 24px;
+}
+
+    .calendar-title span {
+        height: 20px;
+        line-height: 20px;
+    }
+
+.calendar-prevmonth {
+    left: 20px;
+    background: url('images/calendar_arrows.png') no-repeat -18px -2px;
+}
+
+.calendar-nextmonth {
+    right: 20px;
+    background: url('images/calendar_arrows.png') no-repeat -34px -2px;
+}
+
+.calendar-prevyear {
+    left: 3px;
+    background: url('images/calendar_arrows.png') no-repeat -1px -2px;
+}
+
+.calendar-nextyear {
+    right: 3px;
+    background: url('images/calendar_arrows.png') no-repeat -49px -2px;
+}
+
+.calendar-menu-prev {
+    margin-right: 10px;
+    background: url('images/calendar_arrows.png') no-repeat 2px 2px;
+}
+
+.calendar-menu-next {
+    margin-left: 10px;
+    background: url('images/calendar_arrows.png') no-repeat -45px 2px;
+}
+
+.calendar {
+    border-color: #5395c5;
+}
+
+.calendar-header {
+    background: #5395c5;
+    color: #fff;
+}
+
+/* calendar 样式 end */
+
+
+
+/* tree 样式 begin */
+
+.tree-node {
+    height: 34px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.tree-expanded, .tree-collapsed, .tree-folder, .tree-file, .tree-checkbox, .tree-indent {
+    height: 34px;
+    font-size: 14px;
+}
+
+.tree-folder {
+  background: url('images/tree_icons-1.png') no-repeat -208px -2px;
+}
+.tree-folder-open {
+  background: url('images/tree_icons-1.png') no-repeat -224px -2px;
+}
+
+.tree-file.tree-title {
+    font-size: 12px;
+}
+
+.tree-expanded {
+    background: url('images/tree_icons-1.png') no-repeat -18px -2px;
+}
+
+.tree-expanded-hover {
+    background: url('images/tree_icons-1.png') no-repeat -50px -2px;
+}
+
+.tree-node-selected .tree-expanded {
+    background: url('images/tree_icons-1-hover.png') no-repeat -18px -2px;
+}
+
+.tree-collapsed {
+    background: url('images/tree_icons-1.png') no-repeat 0px -2px;
+}
+
+.tree-collapsed-hover {
+    background: url('images/tree_icons-1.png') no-repeat -32px -2px;
+}
+
+.tree-node-selected .tree-collapsed {
+    background: url('images/tree_icons-1-hover.png') no-repeat 0px -2px;
+}
+
+.tree-lines .tree-expanded, .tree-lines .tree-root-first .tree-expanded {
+    background: url('images/tree_icons-1.png') no-repeat -144px -2px;
+}
+
+.tree-lines .tree-collapsed, .tree-lines .tree-root-first .tree-collapsed {
+    background: url('images/tree_icons-1.png') no-repeat -128px -2px;
+}
+
+.tree-lines .tree-node-last .tree-expanded, .tree-lines .tree-root-one .tree-expanded {
+    background: url('images/tree_icons-1.png') no-repeat -80px -2px;
+}
+
+.tree-lines .tree-node-last .tree-collapsed, .tree-lines .tree-root-one .tree-collapsed {
+    background: url('images/tree_icons-1.png') no-repeat -64px -2px;
+}
+
+.tree-line {
+    background: url('images/tree_icons-1.png') no-repeat -176px -2px;
+}
+
+.tree-join {
+    background: url('images/tree_icons-1.png') no-repeat -192px -2px;
+}
+
+.tree-joinbottom {
+    background: url('images/tree_icons-1.png') no-repeat -160px -2px;
+}
+
+.tree-file {
+    background: url('images/tree_icons-1.png') no-repeat -240px -2px;
+}
+
+.tree-node-selected .tree-file {
+    background: url('images/tree_icons-1-hover.png') no-repeat -240px -2px;
+}
+
+.tree-loading {
+    background: url('images/loading.gif') no-repeat center center;
+}
+
+.tree-checkbox0 {
+    background: url('images/tree_icons-1.png') no-repeat -208px -28px;
+}
+
+.tree-checkbox1 {
+    background: url('images/tree_icons-1.png') no-repeat -224px -28px;
+}
+
+.tree-checkbox2 {
+    background: url('images/tree_icons-1.png') no-repeat -240px -28px;
+}
+
+.tree-title {
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.tree-dnd-yes {
+    background: url('images/tree_icons-1.png') no-repeat -256px 0;
+}
+
+.tree-dnd-no {
+    background: url('images/tree_icons-1.png') no-repeat -256px -18px;
+}
+
+.tree-node-hover {
+    background: #e7f0f7;
+}
+
+.tree-node-selected {
+    background: #69a9d7;
+}
+
+.tree-editor {
+    font-size: 14px;
+    height: 20px !important;
+    height: 24px;
+    line-height: 20px;
+    top: 6px;
+}
+
+/* tree 样式 end */
+
+
+
+/* messager 样式 begin */
+
+.messager-error {
+    background: url('images/messager_icons.png') no-repeat scroll -64px 0;
+}
+
+.messager-info {
+    background: url('images/messager_icons.png') no-repeat scroll 0 0;
+}
+
+.messager-question {
+    background: url('images/messager_icons.png') no-repeat scroll -32px 0;
+}
+
+.messager-warning {
+    background: url('images/messager_icons.png') no-repeat scroll -96px 0;
+}
+
+/* messager 样式 end */
+
+
+/* linkbutton 样式 begin */
+
+.l-btn {
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.l-btn-plain:hover {
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+}
+
+/* linkbutton 样式 end */
+
+/* menu 样式 begin */
+
+.menu-active {
+    -moz-border-radius: 0px 0px 0px 0px;
+    -webkit-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+}
+
+/* menu 样式 end */
+
+
+
+/* datagrid 样式 begin */
+
+.datagrid-row-selected {
+    background: #bcddfe;
+}
+
+/* datagrid 样式 end*/
+
+/* slider 样式 begin */
+
+.slider-inner {
+  background: #549bcf;
+}
+
+/* slider 样式 end*/
+
+/* progressbar 样式 begin */
+
+.progressbar-value .progressbar-text {
+  background-color: #549bcf;
+}
+
+/* progressbar 样式 end*/

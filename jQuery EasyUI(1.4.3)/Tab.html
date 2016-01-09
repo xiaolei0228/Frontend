@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tab</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="resource/themes/default/easyui.css" rel="stylesheet" type="text/css">
+    <link href="resource/themes/icon.css" rel="stylesheet" type="text/css">
+    <link href="resource/ext-themes/default/ext-easyui.css" rel="stylesheet" type="text/css">
+    <link href="resource/ext-themes/ext-icon.css" rel="stylesheet" type="text/css">
+    <script src="resource/jquery.min.js" type="text/javascript"></script>
+    <script src="resource/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="resource/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+</head>
+<body>
+<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addTabPage_a()">加载a页面</a>
+<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="addTabPage_b()">加载b页面</a>
+<div id="tab" class="easyui-tabs" style="width: 260px;height: 600px">
+    <div title="系统设置">
+        系统设置
+    </div>
+    <div title="人员管理">
+        人员管理
+    </div>
+    <div title="商品管理">
+        商品管理
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(initTabs);
+
+    function initTabs() {
+        $('#tab').tabs({
+            tabPosition: 'left'
+        });
+    }
+
+    function addTabPage_a() {
+        $('#tab').tabs("add", {
+            title: 'new tab',
+            href: 'a.html',
+            index: "a"
+        });
+    }
+
+    function addTabPage_b() {
+        var currTab = $("#tab");
+        currTab.tabs("add", {
+            title: 'new tab',
+            href: 'b.html',
+            closable: true,
+            index: "a",
+            tools: [{
+                iconCls: "icon-mini-refresh",
+                handler: function() {
+                    var seleTab = currTab.tabs("getSelected");
+                    currTab.tabs("update", {
+                        tab: seleTab,
+                        options: {
+                            title: "新的标题...",
+                            href: "b.html"
+                        }
+                    });
+                }
+            }]
+        });
+    }
+
+    /**
+     * 生成eadyui能解析的有层次关系的树的json对象
+     * @param data
+     * @returns {Array}
+     */
+    function makeEasyTree(data) {
+        if (!data)
+            return [];
+        var _newData = []; //最终返回结果
+        var _treeArray = {}; //记录一级节点
+        var _root = 1; //最顶层fid
+        var _idKey = "id"; //主键的键名
+        var _fidKey = "fid"; //父ID的键名
+        _getChildren(_root);
+        function _getChildren($root) {
+            var $children = [];
+            for (var i in data) {
+                if ($root == data[i][_fidKey]) {
+                    data[i]["children"] = _getChildren(data[i][_idKey]);
+                    $children.push(data[i]);
+                }
+                //只要一级节点
+                if (_root == data[i][_fidKey] && !_treeArray[data[i][_idKey]]) {
+                    _treeArray[data[i][_idKey]] = data[i];
+                    _newData.push(data[i]);
+                }
+            }
+            return $children;
+        }
+
+        return _newData;
+    }
+</script>

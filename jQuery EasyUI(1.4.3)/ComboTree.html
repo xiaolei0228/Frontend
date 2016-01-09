@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ComboTree(下拉树)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="resource/themes/default/easyui.css" rel="stylesheet" type="text/css">
+    <link href="resource/themes/icon.css" rel="stylesheet" type="text/css">
+    <link href="resource/ext-themes/default/ext-easyui.css" rel="stylesheet" type="text/css">
+    <link href="resource/ext-themes/ext-icon.css" rel="stylesheet" type="text/css">
+    <script src="resource/jquery.min.js" type="text/javascript"></script>
+    <script src="resource/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="resource/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+</head>
+<body style="margin: 0">
+<div style="margin:20px 0">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="getValue()">GetValue</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="setValue()">SetValue</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="disable()">Disable</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="enable()">Enable</a>
+</div>
+<input id="cc" class="easyui-combotree" data-options="url:'json/tree_data1.json',method:'get',required:true"
+       style="width:200px;height: 26px;-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px">
+</body>
+</html>
+<script type="text/javascript">
+    function getValue() {
+        var val = $('#cc').combotree('getValue');
+        alert(val);
+    }
+    function setValue() {
+        $('#cc').combotree('setValue', '122');
+    }
+    function disable() {
+        $('#cc').combotree('disable');
+    }
+    function enable() {
+        $('#cc').combotree('enable');
+    }
+</script>

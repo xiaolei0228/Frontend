@@ -3094,3 +3094,6 @@
 .icon-woocons-32-window-move{background:url('icon-woocons/32x32/window-move.png') no-repeat center center;}
 .icon-woocons-32-window-resize{background:url('icon-woocons/32x32/window-resize.png') no-repeat center center;}
 .icon-woocons-32-window{background:url('icon-woocons/32x32/window.png') no-repeat center center;}
+
+/**自定义图标**/
+.icon-ehome-16-menu{background:url('icon-ehome/16x16/menu.png') no-repeat center center;}

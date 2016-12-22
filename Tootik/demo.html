@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>纯CSS提示插件</title>
+    <link rel="stylesheet" href="tootik.min.css">
+</head>
+<body style="padding: 80px;">
+<a href="https://eliorshalev.github.io/tootik/">官方地址</a><br><br>
+<span data-tootik="提示的内容" data-tootik-conf="position:top,feature:shadow">Top</span>
+<br>
+<span data-tootik="提示的内容" data-tootik-conf="position:left,feature:shadow">Left</span>
+<br>
+<span data-tootik="提示的内容" data-tootik-conf="position:right,type:success,feature:shadow">feature可以写多个，以空格隔开</span>
+
+<br><br>data-tootik-conf有下面几种设置:
+<div style="background-color:#e1e1e1;">
+    position: top、right、bottom、left   默认是top<br><br>
+    type: invert、success、info、warning、danger    默认是黑色的<br><br>
+    feature: delay、no-fading、shadow、multiline、no-arrow、square   delay和no-fading只能设置一个，其它可以是多个，空格隔开
+</div>
+</body>
+</html>

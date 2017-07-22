@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>jwplayer-rtmp-2</title>
+    <title>jwplayer-http</title>
     <link rel="stylesheet" href="skins/vapor.css">
     <script type="text/javascript" src="jwplayer.js"></script>
     <script type="text/javascript">
@@ -10,13 +10,13 @@
     </script>
 </head>
 <body>
-<div style="margin-bottom:10px;font-weight:bold;color:#d41046;">播放rtmp协议的视频：方式2</div>
+<div style="margin-bottom:10px;font-weight:bold;color:#d41046;">播放http协议的视频</div>
 <div id="player">正在连接...</div>
 
 <script type="text/javascript">
     jwplayer("player").setup({
         flashplayer: 'jwplayer.flash.swf',
-        file: 'rtmp://192.168.1.2:1935/test/wsznhw',
+        file: 'http://192.168.1.5/group1/M00/00/00/wKgBBVkdLd6AfzA9AMySqJo--Vg307.mp4',
         height: '360',
         width: '100%',
         controlbar: 'bottom',

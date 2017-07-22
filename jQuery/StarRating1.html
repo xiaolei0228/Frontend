@@ -149,6 +149,10 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    var num = 22.127456;
+    console.info(num.toFixed(2));
+</script>
 </body>
 </html>
 <script type="text/javascript">
@@ -158,7 +162,7 @@
         $(this).nextAll().removeClass('label_hov');
     }, function () {
         $('.j_rate label').removeClass('label_hov');
-    })
+    });
     $('.j_rate label').click(function () {
         $('.j_rate label').addClass('label_act');
         $(this).nextAll().removeClass('label_act');

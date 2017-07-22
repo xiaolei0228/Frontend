@@ -1,0 +1,9 @@
+key:
+    NZ/litwvCbhLYaULfUWZsFHZ7HBX9EBObeWC1Q==
+version:
+    Production - 7.12.2
+
+api:
+    https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayer-div-setup-options
+参数项配置configuration:
+    https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#setup

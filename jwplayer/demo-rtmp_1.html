@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jwplayer-rtmp</title>
+    <link rel="stylesheet" href="skins/five.css">
+    <script type="text/javascript" src="jwplayer-2.js"></script>
+</head>
+<body>
+<div id="player">正在连接...</div>
+
+<script type="text/javascript">
+    jwplayer("player").setup({
+        flashplayer: 'player.swf',
+        file: 'qywy',
+        streamer: 'rtmp://192.168.1.2:1935/test',
+        controlbar: 'bottom',
+        height: '360',
+        width: '640',
+        autoplay: true
+    });
+</script>
+</body>
+</html>
